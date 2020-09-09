@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<!-- Created By CodingNepal -->
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="utf-8">
+    <title>Digital Clock Javascript | CodingNepal</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="clock" id="clock">
+        <div class="display">
+        </div>
+    </div>
+    <script>
+    setInterval(function() {
+        const clock = document.querySelector(".display");
+        let time = new Date();
+        let sec = time.getSeconds();
+        let min = time.getMinutes();
+        let hr = time.getHours();
+        let day = 'AM';
+        if (hr > 12) {
+            day = 'PM';
+            hr = hr - 12;
+        }
+        if (hr == 0) {
+            hr = 12;
+        }
+        if (sec < 10) {
+            sec = '0' + sec;
+        }
+        if (min < 10) {
+            min = '0' + min;
+        }
+        if (hr < 10) {
+            hr = '0' + hr;
+        }
+        clock.textContent = hr + ':' + min + ':' + sec + " " + day;
+        
+    });
+
+    setInterval(function(){
+    	
+    	let a = Math.floor(Math.random() * 240);
+        let b = Math.floor(Math.random() * 240);
+        let c = Math.floor(Math.random() * 240);
+        document.getElementById("clock").style.boxShadow = `5px -8px 4px rgb(${c} ${a} ${b}), -10px 12px 8px rgb(${a} ${b} ${c} / 27%`
+    }, 1000);
+
+    
+    </script>
+</body>
+
+</html>
